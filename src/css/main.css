@@ -1,0 +1,22 @@
+body{
+    background-color: black;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.heading{
+    color: bisque;
+}
+.InputForm,.heading{
+    padding: 20px;
+    width: 100%;
+    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color:bisque;
+}
+
+.InputForm > div{
+    margin: 20px 0;
+}

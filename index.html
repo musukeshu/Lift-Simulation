@@ -1,9 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./src/css/main.css">
+        <title>Lift Simulation Project</title>
     </head>
     <body>
-        <h1>Lift Simulation</h1>
+        <h1 class="heading">Lift Simulation</h1>
+        <div class="InputForm">
+            <div>
+                <label for="NoOfFloors">Enter the number of floors</label>
+                <input type="number" id="NoOfFloors" name="NoOfFloors" min="1">
+            </div>
+            <div>
+                <label for="NoOfLifts">Enter the number of lifts</label>
+                <input type="number" id="NoOfLifts" name="NoOfLifts" min="1">
+            </div>
+                <input type="submit" value="Submit" id="Submit">
+        </div>
+        <script src="./src/js/main.js"></script>
     </body>
 </html>
