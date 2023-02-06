@@ -1,3 +1,9 @@
+*{
+    margin:0;
+    padding:0;
+    border:border-box;
+}
+
 body{
     background-color: black;
     max-width: 100%;
@@ -19,4 +25,38 @@ body{
 
 .InputForm > div{
     margin: 20px 0;
+}
+
+#Submit{
+    color: black;
+    padding: 5px;
+    font-weight:bold;
+    cursor: pointer;
+}
+
+.Floor{
+    display: flex;
+    align-items: center;
+}
+.FloorBoundaryLines{
+    background-color:bisque;
+    margin:0 10px;
+    height: 2px;
+    width: 90%;
+}
+.FloorWrapperContainer{
+    margin: 2rem auto;
+    position: relative;
+    padding: 1rem;
+    align-items: center;
+}
+.FloorWrapper{
+    display: flex;
+}
+.FloorNumberWrapper{
+    color:bisque;
+}
+.UpBtn,.DownBtn{
+    font-weight: bold;
+    padding: 1px;
 }
