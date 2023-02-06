@@ -48,7 +48,7 @@ function CreateFloors()
 //Generating Lifts
 
 //listening to Submit Button
-SubmitBtn.addEventListengiter("click", (e) => {
+SubmitBtn.addEventListener("click", (e) => {
     e.preventDefault();
     if(Number(NumOfFloors.value)<1)
     {
