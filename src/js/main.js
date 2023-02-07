@@ -32,6 +32,9 @@ function CreateFloors()
                     <button class="UpBtn">UP</button>
                     <button class="DownBtn">DOWN</button>
                 </div>
+                <div class="LiftWrapper">
+                    ${i===0?GenerateLifts():""}
+                </div>
             </div>
             <div class="Floor">
                 <div class="FloorBoundaryLines"></div>
@@ -46,6 +49,21 @@ function CreateFloors()
 }
 
 //Generating Lifts
+
+function GenerateLifts()
+{
+    let lifts = Number(NumOfLifts.value);
+    let resultantLiftDisplay = ``;
+    for(i=0;i<lifts;i++)
+    {
+        resultantLiftDisplay+=
+        `<div class="Lift">
+            <div class="LGate" id="LGate"></div>
+            <div class="RGate" id="RGate"></div>
+        <div>`
+    }
+    return resultantLiftDisplay;
+}
 
 //listening to Submit Button
 SubmitBtn.addEventListener("click", (e) => {
