@@ -51,6 +51,7 @@ body{
 }
 .FloorWrapper{
     display: flex;
+    width: 95%;
 }
 .FloorNumberWrapper{
     color:bisque;
@@ -59,26 +60,28 @@ body{
     font-weight: bold;
     padding: 1px;
     margin:5px auto;
+    display: block;
 }
 .LiftWrapper {
-    width: 100%;
+    max-width: 94%;
     height: 120px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    overflow: hidden;
   }
   .Lift {
     height: 100px;
-    width: 4rem;
+    width: 3rem;
     border: 1px solid burlywood;
-    margin-left: 70px;
+    margin-left: 30px;
     display: flex;
     justify-content: space-between;
   }
   
   .LGate,.RGate {
-    height: 98%;
-    width: 48%;
+    height: 96px;
+    width: 1.5rem;
     border: 1px solid black;
     background-color: bisque;
     padding: 1px;

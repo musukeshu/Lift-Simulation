@@ -60,7 +60,7 @@ function GenerateLifts()
         `<div class="Lift">
             <div class="LGate" id="LGate"></div>
             <div class="RGate" id="RGate"></div>
-        <div>`
+        </div>`
     }
     return resultantLiftDisplay;
 }
