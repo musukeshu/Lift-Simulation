@@ -114,8 +114,26 @@ function moveLift(targetFloor) {
 
     //Make the status of lift free after certain time
     setTimeout(() => {
-        availableLift.setAttribute("data-status","free");
-      }, distanceToTravel* 2000); // TODO: 1000 will be changed after animating lift doors (as more timeout will be required)
-    availableLift.setAttribute("data-pos", targetFloor);
+        DoorAnimation(availableLift)
+      }, distanceToTravel* 2000);
 
+    setTimeout(() => {
+        availableLift.setAttribute("data-status","free");
+        availableLift.setAttribute("data-pos", targetFloor);
+    },distanceToTravel* 2000 + 4000);
+
+}
+
+//Door Animation
+
+function DoorAnimation(availableLift)
+{
+    setTimeout(() => {
+        availableLift.children[0].classList.add("leftDoorAnimate");
+        availableLift.children[1].classList.add("rightDoorAnimate");
+      }, 500);
+      setTimeout(() => {
+        availableLift.children[0].classList.remove("leftDoorAnimate");
+        availableLift.children[1].classList.remove("rightDoorAnimate");
+      },3000);
 }
