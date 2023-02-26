@@ -69,6 +69,7 @@ function GenerateLifts()
 //TODO: Add some more checks based on the screen size
 SubmitBtn.addEventListener("click", (e) => {
     e.preventDefault();
+    document.getElementById("InputForm").style.display = "none";
     if(Number(NumOfFloors.value)<1)
     {
         alert("Please enter a valid floor number (>=1)")
@@ -120,7 +121,7 @@ function moveLift(targetFloor) {
     setTimeout(() => {
         availableLift.setAttribute("data-status","free");
         availableLift.setAttribute("data-pos", targetFloor);
-    },distanceToTravel* 2000 + 4000);
+    },distanceToTravel* 2000 + 5000);
 
 }
 
