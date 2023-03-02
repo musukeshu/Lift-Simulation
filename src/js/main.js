@@ -3,6 +3,13 @@ let NumOfFloors = document.getElementById("NoOfFloors");
 let NumOfLifts = document.getElementById("NoOfLifts");
 let FinalPage = document.getElementById("FinalPage");
 
+let liftRequestQueue = [];
+
+//Check for any Lift Request in every 200msec.
+document.addEventListener("DOMContentLoaded", function() {
+    let id = setInterval(checkQueue,200);
+  });
+
 //Generating floors
 function CreateFloors()
 {
@@ -87,13 +94,13 @@ SubmitBtn.addEventListener("click", (e) => {
 //Listen to the button click
 addEventListener('click', (e) => {
     if(e.target.classList.contains('UpBtn') || e.target.classList.contains('DownBtn')){
-        moveLift(e.target.dataset.floorno);
+        liftRequestQueue.push(e.target.dataset.floorno);
     }
 })
 
 
 //Lift Movement Logic 
-//(TODO: 1) To move the nearest lift  2) Handling the edge case scenario if no lift is free)
+//(TODO: 1) To move the nearest lift)
 
 function moveLift(targetFloor) {
 
@@ -101,11 +108,11 @@ function moveLift(targetFloor) {
     const availableLift = lifts.find((lift) => lift.dataset.status === "free");
     const availableLiftOnTargetFloor = lifts.find((lift) => {lift.dataset.status === "free" && Number(lift.dataset.pos) === targetFloor});
 
-    // The lift is already present on the current floor
-    if (availableLiftOnTargetFloor) {
-        availableLiftOnTargetFloor.setAttribute("data-status", "busy");
-        return;
-    }
+        // The lift is already present on the current floor
+        if (availableLiftOnTargetFloor) {
+            availableLiftOnTargetFloor.setAttribute("data-status", "busy");
+            return;
+        }
 
     //If lift is somewhere else than the targeted floor
     let distanceToTravel = Math.abs(targetFloor - Number(availableLift.dataset.pos) );
@@ -124,6 +131,44 @@ function moveLift(targetFloor) {
     },distanceToTravel* 2000 + 5000);
 
 }
+
+// Check if any lift is free (TRUE: Any lift is free; else FALSE)
+function checkAvailability()
+{
+    const lifts = Array.from(document.getElementsByClassName("Lift"));
+    const availableLift = lifts.find((lift) => lift.dataset.status === "free");
+    if(availableLift)
+    {
+        return true;
+    }
+    else{
+        return false;
+    }
+
+}
+
+
+//Check for any requests in the queue and process it
+function checkQueue()
+{
+    if(liftRequestQueue.length === 0)
+    {
+        return;
+    }
+    else{
+        let target = liftRequestQueue[0];
+        if(checkAvailability())
+        {
+            liftRequestQueue.shift();
+            moveLift(target);
+        }
+        else{
+            return;
+        }
+
+    }
+}
+
 
 //Door Animation
 
